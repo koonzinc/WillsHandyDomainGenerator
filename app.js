@@ -1,22 +1,20 @@
-let domainList = [];
+
 
 function generateDomain() {
-    let pronoun = ["the", "our", "he", "him", "her", "me", "she", "them"];
-    let adj = ["great", "large", "bloody", "blushing", "brave", "busy", "blue", "bored"];
-    let noun = ["woman", "man", "dog", "ability", "card", "career", "case", "college"];
+    let pronoun = ["the", "our", "her"];
+    let adj = ["great", "amazing"];
+    let noun = ["woman", "man"];
+    let domainList = "";
 
     for(let i = 0; i < pronoun.length; i++){
-        let randPronoun = pronoun[Math.floor(Math.random() + i)]
-        for(let i = 0; i < adj.length; i++){
-            let randAdj = adj[Math.floor(Math.random() + i)]
-            for(let i = 0; i < noun.length; i++){
-                let randNoun = noun[Math.floor(Math.random() + i)]
-                domainList.push(randPronoun + randAdj + randNoun + ".com"); 
+        for(let j = 0; j < adj.length; j++){
+            for(let k = 0; k < noun.length; k++){
+                domainList += `${pronoun[i]}${adj[j]}${noun[k]}.com<br>` 
             }
         }
     }
 
-    document.getElementById("domain").innerHTML += "<br>" + domainList[Math.floor(Math.random() * domainList.length)];
+    document.getElementById("domain").innerHTML = domainList;
 }
 
 
